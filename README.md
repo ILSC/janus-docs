@@ -90,12 +90,14 @@ Janus requires a minimal configuratiun on P6 side. All you need to do is setup a
 Rest of the configuration items like UDFs Document Status etc are created on the fly by Janus.
 
 To create project code Go to Project Codes section under Enterprise Data in P6 and use the Add Code option. Refer Primavera Admin manual for more details related to the same.
+
 ![Picture2.png](https://bitbucket.org/repo/Ag4kgL5/images/1515524858-Picture2.png)
 
 ## Configuration in Agile
 In Agile you need to setup certain attributes on **Page Two** of **Documents class**. These attributes are used by Janus to store mapping information related to the P6 Deliverable on Agile PLM document.
 
 You need to use Agile Java Client to do the same. Refer Agile Admin manual for more details on setting up the same. You may also need to setup read and modify privileges related to these attributes. Ideally these should only be editable using the Agile login used in Janus.
+
 ![Picture3.png](https://bitbucket.org/repo/Ag4kgL5/images/4286225787-Picture3.png)
 
 Following is the list of attributes that need to be setup in Agile.
@@ -106,10 +108,11 @@ Primavera Project Id | PrimaveraProjectId | Text
 WP Document Id | WPDocId | Text
 Due Date | DueDate| Date
 
-In addition to these you need to setup a URL Process Extension in Agile as well. This enables the user to initiate deliverable mapping from Agile drawing or document. This also need to be setup using Agile Java Client. The url in the url px should be pointing to `mapproject` endpoint of Janus application. The structure of the url will be as follows.
+In addition to these you need to setup a URL Process Extension in Agile as well. This enables the user to initiate deliverable mapping from Agile drawing or document. This also need to be setup using Agile Java Client. The url in the url px should be pointing to `mapproject` endpoint of Janus application and need to be trigerred from `Actions Meun`. The structure of the url will be as follows.
 ```
 http://<Janus server>:<port>/mapproject
 ```
+The URL PX needs to be assigned to the classes which will be linked as deliverables in P6 Projects.
 
 ![Picture9.png](https://bitbucket.org/repo/Ag4kgL5/images/951691176-Picture9.png)
 
@@ -134,6 +137,7 @@ To link an Agile Document to an existing Primavera Project Deliverable, user can
 To create a new deliverable in P6 based on a document in Agile, user needs to click on `Link to Project Deliverable` option under Action Button only but need to click on `New WP Document` button instead.
 
 This will open up a `Create WP Document` form and user needs to select the project under which the document need to be created and click on `Create Document` Button.
+
 ![Picture5.png](https://bitbucket.org/repo/Ag4kgL5/images/2316530974-Picture5.png)
 
 ## Setting up Sync Schedule
@@ -142,12 +146,15 @@ The information related to deliverables mapped between the two systems in synced
 Sync Jobs identify projects that need to be synchronised along with the schedule and frequency of the same. To setup sync jobs admin user needs to login into Janus and setup a Job.
 
 Existing Jobs setup in Janus are visible to admin user at home page itself and admin can edit or remove these jobs or setup a new sync job.
+
 ![Picture6.png](https://bitbucket.org/repo/Ag4kgL5/images/3812540147-Picture6.png)   
 
 You can setup single sync job for all projects or multiple jobs to each targeting a set of projects. A job definition includes Projects included in the Sync Job along with a Schedule for the same.
 
 You can lookup Projects by Name or by filtering them using Project Code Assignments and then select the ones you need to include from the search results.
+
 ![Picture7.png](https://bitbucket.org/repo/Ag4kgL5/images/1943034790-Picture7.png)
 
 To setup schedule for the Job, admin need to define the cron trigger under schedule tab and also give the Job a name and then click on `Schedule Job` button.
+
 ![Picture8.png](https://bitbucket.org/repo/Ag4kgL5/images/1834552688-Picture8.png)

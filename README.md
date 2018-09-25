@@ -95,7 +95,7 @@ To create project code Go to Project Codes section under Enterprise Data in P6 a
 ## Configuration in Agile
 In Agile you need to setup certain attributes on **Page Two** of **Documents class**. These attributes are used by Janus to store mapping information related to the P6 Deliverable on Agile PLM document.
 
-You need to use Agile Java Client to do the same. refer Agile Admin manual for more details on setting up the same. You may also need to setup read and modify privileges related to these attributes. Ideally these should only be editable using the Agile login used in Janus.
+You need to use Agile Java Client to do the same. Refer Agile Admin manual for more details on setting up the same. You may also need to setup read and modify privileges related to these attributes. Ideally these should only be editable using the Agile login used in Janus.
 ![Picture3.png](https://bitbucket.org/repo/Ag4kgL5/images/4286225787-Picture3.png)
 
 Following is the list of attributes that need to be setup in Agile.
@@ -105,6 +105,13 @@ Name | API Name| Data Type
 Primavera Project Id | PrimaveraProjectId | Text
 WP Document Id | WPDocId | Text
 Due Date | DueDate| Date
+
+In addition to these you need to setup a URL Process Extension in Agile as well. This enables the user to initiate deliverable mapping from Agile drawing or document. This also need to be setup using Agile Java Client. The url in the url px should be pointing to `mapproject` endpoint of Janus application. The structure of the url will be as follows.
+```
+http://<Janus server>:<port>/mapproject
+```
+
+![Picture9.png](https://bitbucket.org/repo/Ag4kgL5/images/951691176-Picture9.png)
 
 # Startup and Shutdown
 To start Janus run the staruJanus.sh or startJanus.cmd script. Janus must only be started once the Primavera, Agile and Mongo DB we are using in Janus are already up and running.
